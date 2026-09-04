@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+/*
+  Design tokens for SafeHire LK.
+
+  Two groups:
+  1. "brand"  — the deep blue the whole app is built on. Reads as official
+                and trustworthy, which matters for a safety tool.
+  2. Semantic — safe / caution / danger. Every verdict card and every risk
+                band in the app must use these three and nothing else, so a
+                colour always means the same thing to the user.
+
+  Each token becomes a normal Tailwind class, e.g. --color-brand-800 gives
+  you bg-brand-800, text-brand-800, border-brand-800.
+*/
+@theme {
+  --color-brand-50: #eff5fb;
+  --color-brand-100: #dbe8f6;
+  --color-brand-200: #b7d0ec;
+  --color-brand-300: #86aedd;
+  --color-brand-500: #2f6fb5;
+  --color-brand-600: #1d558f;
+  --color-brand-700: #164272;
+  --color-brand-800: #0f3057;
+  --color-brand-900: #0a2540;
+
+  --color-safe: #15803d;
+  --color-safe-soft: #ecfdf3;
+  --color-safe-line: #a7e3bf;
+
+  --color-caution: #b45309;
+  --color-caution-soft: #fffbeb;
+  --color-caution-line: #fcd995;
+
+  --color-danger: #b91c1c;
+  --color-danger-soft: #fef2f2;
+  --color-danger-line: #f5b5b5;
+
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+}
+
+/*
+  No web font is loaded on purpose. The app has to work on slow campus wifi
+  and on a phone over mobile data, so we use the fonts already on the device.
+*/
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  background-color: var(--color-brand-50);
+  color: var(--color-brand-900);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Anything focused by keyboard gets a visible ring, for accessibility marks. */
+:focus-visible {
+  outline: 2px solid var(--color-brand-600);
+  outline-offset: 2px;
+}
