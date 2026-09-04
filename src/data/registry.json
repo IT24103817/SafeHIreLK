@@ -1,1 +1,452 @@
-[]
+[
+  {
+    "licence_no": "FE/1001",
+    "name": "Al-Falah Manpower (Pvt) Ltd",
+    "type": "agency",
+    "parent_licence": null,
+    "district": "Colombo",
+    "status": "active",
+    "phone": "011XXXXXXX"
+  },
+  {
+    "licence_no": "FE/1002",
+    "name": "Serendib Overseas Careers (Pvt) Ltd",
+    "type": "agency",
+    "parent_licence": null,
+    "district": "Colombo",
+    "status": "active",
+    "phone": "011XXXXXXX"
+  },
+  {
+    "licence_no": "FE/1003",
+    "name": "Ceylon Gulf Recruitment (Pvt) Ltd",
+    "type": "agency",
+    "parent_licence": null,
+    "district": "Colombo",
+    "status": "active",
+    "phone": "011XXXXXXX"
+  },
+  {
+    "licence_no": "FE/1004",
+    "name": "Lanka Bridge Manpower (Pvt) Ltd",
+    "type": "agency",
+    "parent_licence": null,
+    "district": "Colombo",
+    "status": "active",
+    "phone": "011XXXXXXX"
+  },
+  {
+    "licence_no": "FE/1005",
+    "name": "Al-Barakah Employment Services (Pvt) Ltd",
+    "type": "agency",
+    "parent_licence": null,
+    "district": "Colombo",
+    "status": "active",
+    "phone": "011XXXXXXX"
+  },
+  {
+    "licence_no": "FE/1006",
+    "name": "Golden Sands Recruitment (Pvt) Ltd",
+    "type": "agency",
+    "parent_licence": null,
+    "district": "Colombo",
+    "status": "active",
+    "phone": "011XXXXXXX"
+  },
+  {
+    "licence_no": "FE/1007",
+    "name": "Sahara Job Agency (Pvt) Ltd",
+    "type": "agency",
+    "parent_licence": null,
+    "district": "Colombo",
+    "status": "expired",
+    "phone": "011XXXXXXX"
+  },
+  {
+    "licence_no": "FE/1008",
+    "name": "Blue Horizon Manpower (Pvt) Ltd",
+    "type": "agency",
+    "parent_licence": null,
+    "district": "Colombo",
+    "status": "active",
+    "phone": "011XXXXXXX"
+  },
+  {
+    "licence_no": "FE/1009",
+    "name": "Hansa Overseas Careers (Pvt) Ltd",
+    "type": "agency",
+    "parent_licence": null,
+    "district": "Colombo",
+    "status": "active",
+    "phone": "011XXXXXXX"
+  },
+  {
+    "licence_no": "FE/1010",
+    "name": "Muthu Overseas Agency (Pvt) Ltd",
+    "type": "agency",
+    "parent_licence": null,
+    "district": "Gampaha",
+    "status": "active",
+    "phone": "033XXXXXXX"
+  },
+  {
+    "licence_no": "FE/1011",
+    "name": "Jaya Lanka Foreign Employment (Pvt) Ltd",
+    "type": "agency",
+    "parent_licence": null,
+    "district": "Gampaha",
+    "status": "active",
+    "phone": "033XXXXXXX"
+  },
+  {
+    "licence_no": "FE/1012",
+    "name": "Sethsiri Employment Agency (Pvt) Ltd",
+    "type": "agency",
+    "parent_licence": null,
+    "district": "Gampaha",
+    "status": "active",
+    "phone": "033XXXXXXX"
+  },
+  {
+    "licence_no": "FE/1013",
+    "name": "Nelum Foreign Employment (Pvt) Ltd",
+    "type": "agency",
+    "parent_licence": null,
+    "district": "Gampaha",
+    "status": "active",
+    "phone": "033XXXXXXX"
+  },
+  {
+    "licence_no": "FE/1014",
+    "name": "Al-Noor Manpower Agency (Pvt) Ltd",
+    "type": "agency",
+    "parent_licence": null,
+    "district": "Gampaha",
+    "status": "active",
+    "phone": "033XXXXXXX"
+  },
+  {
+    "licence_no": "FE/1015",
+    "name": "Vidura Foreign Employment (Pvt) Ltd",
+    "type": "agency",
+    "parent_licence": null,
+    "district": "Gampaha",
+    "status": "active",
+    "phone": "033XXXXXXX"
+  },
+  {
+    "licence_no": "FE/1016",
+    "name": "Kurunegala Overseas Bureau (Pvt) Ltd",
+    "type": "agency",
+    "parent_licence": null,
+    "district": "Kurunegala",
+    "status": "active",
+    "phone": "037XXXXXXX"
+  },
+  {
+    "licence_no": "FE/1017",
+    "name": "Tharaka Recruitment Services (Pvt) Ltd",
+    "type": "agency",
+    "parent_licence": null,
+    "district": "Kurunegala",
+    "status": "active",
+    "phone": "037XXXXXXX"
+  },
+  {
+    "licence_no": "FE/1018",
+    "name": "Sithuwam Foreign Employment (Pvt) Ltd",
+    "type": "agency",
+    "parent_licence": null,
+    "district": "Kurunegala",
+    "status": "active",
+    "phone": "037XXXXXXX"
+  },
+  {
+    "licence_no": "FE/1019",
+    "name": "Damith Manpower Agency (Pvt) Ltd",
+    "type": "agency",
+    "parent_licence": null,
+    "district": "Kurunegala",
+    "status": "expired",
+    "phone": "037XXXXXXX"
+  },
+  {
+    "licence_no": "FE/1020",
+    "name": "Kandyan Overseas Careers (Pvt) Ltd",
+    "type": "agency",
+    "parent_licence": null,
+    "district": "Kandy",
+    "status": "active",
+    "phone": "081XXXXXXX"
+  },
+  {
+    "licence_no": "FE/1021",
+    "name": "Sooriya Overseas Agency (Pvt) Ltd",
+    "type": "agency",
+    "parent_licence": null,
+    "district": "Kandy",
+    "status": "active",
+    "phone": "081XXXXXXX"
+  },
+  {
+    "licence_no": "FE/1022",
+    "name": "Rathnapriya Manpower (Pvt) Ltd",
+    "type": "agency",
+    "parent_licence": null,
+    "district": "Kandy",
+    "status": "active",
+    "phone": "081XXXXXXX"
+  },
+  {
+    "licence_no": "FE/1023",
+    "name": "Al-Madeena Job Services (Pvt) Ltd",
+    "type": "agency",
+    "parent_licence": null,
+    "district": "Kandy",
+    "status": "active",
+    "phone": "081XXXXXXX"
+  },
+  {
+    "licence_no": "FE/1024",
+    "name": "Eastern Pearl Manpower (Pvt) Ltd",
+    "type": "agency",
+    "parent_licence": null,
+    "district": "Batticaloa",
+    "status": "active",
+    "phone": "065XXXXXXX"
+  },
+  {
+    "licence_no": "FE/1025",
+    "name": "Sri Vairavar Employment (Pvt) Ltd",
+    "type": "agency",
+    "parent_licence": null,
+    "district": "Batticaloa",
+    "status": "active",
+    "phone": "065XXXXXXX"
+  },
+  {
+    "licence_no": "FE/1026",
+    "name": "Thamarai Overseas Services (Pvt) Ltd",
+    "type": "agency",
+    "parent_licence": null,
+    "district": "Batticaloa",
+    "status": "active",
+    "phone": "065XXXXXXX"
+  },
+  {
+    "licence_no": "FE/1027",
+    "name": "Northern Star Manpower (Pvt) Ltd",
+    "type": "agency",
+    "parent_licence": null,
+    "district": "Jaffna",
+    "status": "active",
+    "phone": "021XXXXXXX"
+  },
+  {
+    "licence_no": "FE/1028",
+    "name": "Palmyra Manpower (Pvt) Ltd",
+    "type": "agency",
+    "parent_licence": null,
+    "district": "Jaffna",
+    "status": "active",
+    "phone": "021XXXXXXX"
+  },
+  {
+    "licence_no": "FE/1029",
+    "name": "Vanni Employment Services (Pvt) Ltd",
+    "type": "agency",
+    "parent_licence": null,
+    "district": "Jaffna",
+    "status": "active",
+    "phone": "021XXXXXXX"
+  },
+  {
+    "licence_no": "FE/1030",
+    "name": "Ruhunu Manpower Solutions (Pvt) Ltd",
+    "type": "agency",
+    "parent_licence": null,
+    "district": "Matara",
+    "status": "active",
+    "phone": "041XXXXXXX"
+  },
+  {
+    "licence_no": "FE/1031",
+    "name": "Nilwala Manpower Services (Pvt) Ltd",
+    "type": "agency",
+    "parent_licence": null,
+    "district": "Matara",
+    "status": "expired",
+    "phone": "041XXXXXXX"
+  },
+  {
+    "licence_no": "FE/1032",
+    "name": "Sagara Foreign Employment (Pvt) Ltd",
+    "type": "agency",
+    "parent_licence": null,
+    "district": "Matara",
+    "status": "active",
+    "phone": "041XXXXXXX"
+  },
+  {
+    "licence_no": "FE/1033",
+    "name": "Anuradha Overseas Agency (Pvt) Ltd",
+    "type": "agency",
+    "parent_licence": null,
+    "district": "Anuradhapura",
+    "status": "active",
+    "phone": "025XXXXXXX"
+  },
+  {
+    "licence_no": "FE/1034",
+    "name": "Al-Yamama Recruitment (Pvt) Ltd",
+    "type": "agency",
+    "parent_licence": null,
+    "district": "Anuradhapura",
+    "status": "active",
+    "phone": "025XXXXXXX"
+  },
+  {
+    "licence_no": "FE/1035",
+    "name": "Thilina Overseas Recruitment (Pvt) Ltd",
+    "type": "agency",
+    "parent_licence": null,
+    "district": "Anuradhapura",
+    "status": "active",
+    "phone": "025XXXXXXX"
+  },
+  {
+    "licence_no": "FE/2001",
+    "name": "S. Fernando Recruiting Services",
+    "type": "sub_agent",
+    "parent_licence": "FE/1001",
+    "district": "Colombo",
+    "status": "active",
+    "phone": "077XXXXXXX"
+  },
+  {
+    "licence_no": "FE/2002",
+    "name": "M. Rizwan Job Services",
+    "type": "sub_agent",
+    "parent_licence": "FE/1005",
+    "district": "Colombo",
+    "status": "active",
+    "phone": "071XXXXXXX"
+  },
+  {
+    "licence_no": "FE/2003",
+    "name": "P. Kumarasinghe Job Agency",
+    "type": "sub_agent",
+    "parent_licence": "FE/1002",
+    "district": "Colombo",
+    "status": "active",
+    "phone": "076XXXXXXX"
+  },
+  {
+    "licence_no": "FE/2004",
+    "name": "K. Bandara Overseas Agent",
+    "type": "sub_agent",
+    "parent_licence": "FE/1010",
+    "district": "Gampaha",
+    "status": "active",
+    "phone": "072XXXXXXX"
+  },
+  {
+    "licence_no": "FE/2005",
+    "name": "N. Jayasuriya Recruiting Agent",
+    "type": "sub_agent",
+    "parent_licence": "FE/1013",
+    "district": "Gampaha",
+    "status": "active",
+    "phone": "070XXXXXXX"
+  },
+  {
+    "licence_no": "FE/2006",
+    "name": "A. Wickrama Manpower Services",
+    "type": "sub_agent",
+    "parent_licence": "FE/1016",
+    "district": "Kurunegala",
+    "status": "active",
+    "phone": "075XXXXXXX"
+  },
+  {
+    "licence_no": "FE/2007",
+    "name": "L. Gunaratne Job Services",
+    "type": "sub_agent",
+    "parent_licence": "FE/1019",
+    "district": "Kurunegala",
+    "status": "active",
+    "phone": "078XXXXXXX"
+  },
+  {
+    "licence_no": "FE/2008",
+    "name": "D. Weerakoon Recruiting Agent",
+    "type": "sub_agent",
+    "parent_licence": "FE/1020",
+    "district": "Kandy",
+    "status": "active",
+    "phone": "071XXXXXXX"
+  },
+  {
+    "licence_no": "FE/2009",
+    "name": "H. Nizam Overseas Services",
+    "type": "sub_agent",
+    "parent_licence": "FE/1023",
+    "district": "Kandy",
+    "status": "expired",
+    "phone": "077XXXXXXX"
+  },
+  {
+    "licence_no": "FE/2010",
+    "name": "R. Thevarajah Employment Services",
+    "type": "sub_agent",
+    "parent_licence": "FE/1024",
+    "district": "Batticaloa",
+    "status": "active",
+    "phone": "076XXXXXXX"
+  },
+  {
+    "licence_no": "FE/2011",
+    "name": "V. Sivakumar Employment Agent",
+    "type": "sub_agent",
+    "parent_licence": "FE/1026",
+    "district": "Batticaloa",
+    "status": "active",
+    "phone": "072XXXXXXX"
+  },
+  {
+    "licence_no": "FE/2012",
+    "name": "T. Selvarajah Employment Agent",
+    "type": "sub_agent",
+    "parent_licence": "FE/1027",
+    "district": "Jaffna",
+    "status": "active",
+    "phone": "070XXXXXXX"
+  },
+  {
+    "licence_no": "FE/2013",
+    "name": "F. Marikkar Overseas Agent",
+    "type": "sub_agent",
+    "parent_licence": "FE/1030",
+    "district": "Matara",
+    "status": "active",
+    "phone": "075XXXXXXX"
+  },
+  {
+    "licence_no": "FE/2014",
+    "name": "B. Herath Manpower Agent",
+    "type": "sub_agent",
+    "parent_licence": "FE/1041",
+    "district": "Matara",
+    "status": "active",
+    "phone": "078XXXXXXX"
+  },
+  {
+    "licence_no": "FE/2015",
+    "name": "C. Nadeesha Overseas Services",
+    "type": "sub_agent",
+    "parent_licence": "FE/1063",
+    "district": "Anuradhapura",
+    "status": "active",
+    "phone": "077XXXXXXX"
+  }
+]

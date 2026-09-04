@@ -1,1 +1,112 @@
-[]
+[
+  {
+    "id": "C-001",
+    "name": "K. Perera",
+    "nic_masked": "9XXXXXXXXV",
+    "destination": "Qatar",
+    "amount_lkr": 185000,
+    "reported_by": "Al-Falah Manpower (Pvt) Ltd",
+    "date": "2026-07-14",
+    "status": "verified",
+    "note": "Accepted a paid air ticket and processing fee, then did not report for departure."
+  },
+  {
+    "id": "C-002",
+    "name": "S. Nishantha",
+    "nic_masked": "8XXXXXXXXV",
+    "destination": "Saudi Arabia",
+    "amount_lkr": 240000,
+    "reported_by": "Serendib Overseas Careers (Pvt) Ltd",
+    "date": "2026-06-02",
+    "status": "verified",
+    "note": "Left the employer site three weeks after arrival and stopped contact with the agency."
+  },
+  {
+    "id": "C-003",
+    "name": "M. Fairoz",
+    "nic_masked": "9XXXXXXXXV",
+    "destination": "UAE",
+    "amount_lkr": 310000,
+    "reported_by": "Ceylon Gulf Recruitment (Pvt) Ltd",
+    "date": "2026-05-19",
+    "status": "verified",
+    "note": "Signed the contract and collected the visa, then travelled through a second agency."
+  },
+  {
+    "id": "C-004",
+    "name": "T. Rajendran",
+    "nic_masked": "7XXXXXXXXV",
+    "destination": "Kuwait",
+    "amount_lkr": 155000,
+    "reported_by": "Northern Star Manpower (Pvt) Ltd",
+    "date": "2026-08-03",
+    "status": "verified",
+    "note": "Did not repay the advance issued for medical tests and departure costs."
+  },
+  {
+    "id": "C-005",
+    "name": "A. Dilrukshi",
+    "nic_masked": "199XXXXXXXXX",
+    "destination": "Jordan",
+    "amount_lkr": 120000,
+    "reported_by": "Eastern Pearl Manpower (Pvt) Ltd",
+    "date": "2026-04-27",
+    "status": "verified",
+    "note": "Absconded from the workplace in the first month and the agency met the repatriation cost."
+  },
+  {
+    "id": "C-006",
+    "name": "P. Sanjeewa",
+    "nic_masked": "9XXXXXXXXV",
+    "destination": "Israel",
+    "amount_lkr": 450000,
+    "reported_by": "Golden Sands Recruitment (Pvt) Ltd",
+    "date": "2026-08-18",
+    "status": "verified",
+    "note": "Withdrew after the agency paid the non-refundable visa fee and denied signing the agreement."
+  },
+  {
+    "id": "C-007",
+    "name": "N. Kalaimathy",
+    "nic_masked": "8XXXXXXXXV",
+    "destination": "Oman",
+    "amount_lkr": 165000,
+    "reported_by": "Sri Vairavar Employment (Pvt) Ltd",
+    "date": "2026-03-11",
+    "status": "verified",
+    "note": "Missed the mandatory SLBFE training twice after the agency had paid the course fee."
+  },
+  {
+    "id": "C-008",
+    "name": "W. Chathura",
+    "nic_masked": "200XXXXXXXXX",
+    "destination": "Maldives",
+    "amount_lkr": 95000,
+    "reported_by": "Ruhunu Manpower Solutions (Pvt) Ltd",
+    "date": "2026-07-29",
+    "status": "verified",
+    "note": "Returned within six weeks without notice, leaving the placement fee unsettled."
+  },
+  {
+    "id": "C-009",
+    "name": "H. Ameena",
+    "nic_masked": "9XXXXXXXXV",
+    "destination": "Bahrain",
+    "amount_lkr": 205000,
+    "reported_by": "Al-Noor Manpower Agency (Pvt) Ltd",
+    "date": "2026-08-25",
+    "status": "pending",
+    "note": "Reported for absconding on arrival; the agency is awaiting written confirmation from the employer."
+  },
+  {
+    "id": "C-010",
+    "name": "D. Priyantha",
+    "nic_masked": "8XXXXXXXXV",
+    "destination": "Cyprus",
+    "amount_lkr": 275000,
+    "reported_by": "Kandyan Overseas Careers (Pvt) Ltd",
+    "date": "2026-08-30",
+    "status": "pending",
+    "note": "A second agency has reported the same candidate under a different spelling of the name."
+  }
+]
