@@ -34,6 +34,7 @@ export default function Footer({ isAdmin, onAdminClick, onAdminSignOut }) {
             <button
               type="button"
               onClick={onAdminClick}
+              data-tour="admin"
               className="text-xs font-semibold text-slate-500 underline hover:text-brand-700"
             >
               Admin

@@ -1,9 +1,11 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Header from './components/Header.jsx'
 import TabNav from './components/TabNav.jsx'
 import Footer from './components/Footer.jsx'
 import AdminModal from './components/AdminModal.jsx'
 import Hero from './components/Hero.jsx'
+import TourOverlay from './components/TourOverlay.jsx'
+import { TOUR_STEPS } from './data/tourSteps.js'
 import WhyThisMatters from './components/WhyThisMatters.jsx'
 import VerifyPage from './pages/VerifyPage.jsx'
 import ScanPage from './pages/ScanPage.jsx'
@@ -38,7 +40,22 @@ export default function App() {
   const [isAdmin, setIsAdmin] = useState(false)
   const [isAdminModalOpen, setIsAdminModalOpen] = useState(false)
 
+  // Guided tour. null means it is closed; otherwise it is the step number.
+  const [tourStep, setTourStep] = useState(null)
+
   const tabs = TABS_BY_ROLE[role]
+
+  /*
+    Each tour step names the role and tab it describes, so moving through the
+    tour drives the app to the right screen. This is why the tour can show the
+    agent side without the user having to find the switch first.
+  */
+  useEffect(() => {
+    if (tourStep === null) return
+    const step = TOUR_STEPS[tourStep]
+    setRole(step.role)
+    setActiveTab(step.tab)
+  }, [tourStep])
 
   // The first tab of each role is that role's landing page.
   const isLandingTab = activeTab === 'verify' || activeTab === 'candidate'
@@ -81,7 +98,12 @@ export default function App() {
         <TabNav tabs={tabs} activeTab={activeTab} onTabChange={setActiveTab} />
       </div>
 
-      <main className="mx-auto w-full max-w-3xl flex-1 px-4 py-6 sm:px-6 sm:py-10">
+      <main
+        className={
+          'mx-auto w-full max-w-3xl flex-1 px-4 py-6 sm:px-6 sm:py-10 ' +
+          (tourStep !== null ? 'pb-64' : '')
+        }
+      >
         {/*
           The hero and the problem section belong to whichever tab a role opens
           on. The hero sits above the search so the main action stays near the
@@ -89,9 +111,21 @@ export default function App() {
           still plainly on the landing page but not in the way of someone who
           came here to check a name quickly.
         */}
-        {isLandingTab && <Hero role={role} onRoleChange={handleRoleChange} />}
+        {isLandingTab && (
+          <Hero
+            role={role}
+            onRoleChange={handleRoleChange}
+            onStartTour={() => setTourStep(0)}
+          />
+        )}
 
-        {renderActivePage()}
+        {/*
+          Keyed on the tab so React replaces the subtree and the fade-in runs
+          again on every tab change.
+        */}
+        <div key={activeTab} className="page-in">
+          {renderActivePage()}
+        </div>
 
         {isLandingTab && <WhyThisMatters />}
       </main>
@@ -101,6 +135,17 @@ export default function App() {
         onAdminClick={() => setIsAdminModalOpen(true)}
         onAdminSignOut={() => setIsAdmin(false)}
       />
+
+      {tourStep !== null && (
+        <TourOverlay
+          stepIndex={tourStep}
+          onNext={() =>
+            setTourStep((n) => Math.min(n + 1, TOUR_STEPS.length - 1))
+          }
+          onBack={() => setTourStep((n) => Math.max(n - 1, 0))}
+          onClose={() => setTourStep(null)}
+        />
+      )}
 
       {isAdminModalOpen && (
         <AdminModal

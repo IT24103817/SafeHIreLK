@@ -1,4 +1,5 @@
 import seedReports from '../data/reports.seed.json'
+import { newClientId } from './reportsSync.js'
 
 /*
   Owner: C and D — reports saved in the browser with localStorage.
@@ -105,18 +106,50 @@ function byNewestFirst(a, b) {
 }
 
 /*
-  Every report: the seeded ones plus everything submitted on this device, with
-  the moderator's decisions applied on top.
+  The id a report is known by everywhere: in the status map, as the React key,
+  and in the moderator decision sent to the shared database.
+
+  Seeded reports use their R-00n id. Submitted reports use their client_id,
+  which is random and unique. Without that, two people who each submit a report
+  on their own phone both produce "R-009", and approving one of them would
+  approve the other as well once the two devices sync.
 */
-export function loadReports() {
+export function reportKey(report) {
+  return report.client_id || report.id
+}
+
+/*
+  Every report: the seeded ones, everything submitted on this device, and —
+  when the optional shared layer answered — everything other people submitted.
+
+  `shared` is whatever fetchSharedReports() returned, or null / omitted. The
+  function works exactly the same without it, which is what keeps the app
+  usable offline.
+*/
+export function loadReports(shared) {
   const submitted = readStore(SUBMITTED_KEY, []).filter(isUsableReport)
-  const statuses = readStore(STATUS_KEY, {})
+  const localStatuses = readStore(STATUS_KEY, {})
 
   const all = seedReports.concat(submitted)
+  const seen = new Set(all.map(reportKey))
+
+  if (shared && Array.isArray(shared.reports)) {
+    for (const report of shared.reports) {
+      if (!isUsableReport(report)) continue
+      const key = reportKey(report)
+      if (seen.has(key)) continue
+      seen.add(key)
+      all.push(report)
+    }
+  }
+
+  // Decisions made on this device win, so a moderator sees their own approve
+  // take effect straight away even if the shared copy has not caught up.
+  const statuses = { ...(shared ? shared.statuses : null), ...localStatuses }
 
   return all
     .map((report) => {
-      const decided = statuses[report.id]
+      const decided = statuses[reportKey(report)]
       if (typeof decided !== 'string') return report
       return { ...report, status: decided }
     })
@@ -152,6 +185,7 @@ export function saveReport(report) {
   const newReport = {
     ...report,
     id: nextReportId(seedReports.concat(submitted)),
+    client_id: newClientId(),
     date: now.toISOString().slice(0, 10),
     created_at: now.toISOString(),
     status: 'pending',

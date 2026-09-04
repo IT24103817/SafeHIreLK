@@ -6,7 +6,7 @@
 */
 export default function ExampleSearches({ examples, onPick }) {
   return (
-    <div className="rounded-xl border border-brand-100 bg-white p-4">
+    <div className="rounded-xl border border-brand-100 bg-white p-4 shadow-sm">
       <p className="text-sm font-semibold text-brand-900">Try one of these</p>
 
       <div className="mt-3 flex flex-wrap gap-2">

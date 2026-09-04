@@ -36,6 +36,13 @@
   --color-danger-soft: #fef2f2;
   --color-danger-line: #f5b5b5;
 
+  /*
+    The page ground. Lighter and less saturated than brand-50, which is kept
+    for chips and inset panels — the contrast between the two is what gives
+    the cards their lift without needing heavy borders everywhere.
+  */
+  --color-canvas: #f4f7fb;
+
   --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, sans-serif;
 }
@@ -51,9 +58,58 @@ html {
 body {
   margin: 0;
   font-family: var(--font-sans);
-  background-color: var(--color-brand-50);
+  background-color: var(--color-canvas);
   color: var(--color-brand-900);
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/*
+  Each tab fades up as it appears. It is 260ms and only on the page area, which
+  is enough to make moving between tabs feel deliberate rather than abrupt, and
+  short enough that it never gets in the way of someone in a hurry.
+*/
+@keyframes page-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.page-in {
+  animation: page-in 260ms cubic-bezier(0.2, 0.7, 0.3, 1) both;
+}
+
+/*
+  The ring the guided tour draws around whatever it is describing. The scroll
+  margins keep the highlighted element clear of the sticky header above and the
+  tour card below when it is scrolled into view.
+*/
+.tour-ring {
+  outline: 3px solid var(--color-brand-500);
+  outline-offset: 3px;
+  border-radius: 0.75rem;
+  scroll-margin-top: 10rem;
+  scroll-margin-bottom: 17rem;
+}
+
+/* Respect people who have asked their device for less movement. */
+@media (prefers-reduced-motion: reduce) {
+  .page-in {
+    animation: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+  }
 }
 
 /* Anything focused by keyboard gets a visible ring, for accessibility marks. */

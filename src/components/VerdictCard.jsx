@@ -97,7 +97,7 @@ export default function VerdictCard({ record, registry }) {
   ]
 
   return (
-    <article className={'rounded-xl border p-4 sm:p-5 ' + tone.card}>
+    <article className={'rounded-xl border p-4 shadow-sm sm:p-5 ' + tone.card}>
       <div className="flex flex-wrap items-start justify-between gap-x-3 gap-y-2">
         <div className="min-w-0">
           <h3 className="text-base font-bold break-words text-brand-900 sm:text-lg">

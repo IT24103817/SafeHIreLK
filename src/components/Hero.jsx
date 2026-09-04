@@ -6,7 +6,7 @@ import RoleChooser from './RoleChooser.jsx'
   ways into it — and the search box is still one screen away, not buried
   under the explanation.
 */
-export default function Hero({ role, onRoleChange }) {
+export default function Hero({ role, onRoleChange, onStartTour }) {
   return (
     <section className="mb-6 rounded-2xl bg-brand-900 p-5 text-white sm:p-7">
       <h2 className="text-2xl font-bold leading-tight tracking-tight sm:text-3xl">
@@ -21,6 +21,27 @@ export default function Hero({ role, onRoleChange }) {
       <div className="mt-5">
         <RoleChooser role={role} onRoleChange={onRoleChange} />
       </div>
+
+      <button
+        type="button"
+        onClick={onStartTour}
+        className="mt-4 inline-flex items-center gap-2 rounded-xl bg-white/10 px-4 py-2.5 text-sm font-semibold text-white ring-1 ring-white/25 transition hover:bg-white/20"
+      >
+        <svg
+          aria-hidden="true"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className="h-4 w-4"
+        >
+          <circle cx="12" cy="12" r="9" />
+          <path d="m10 8 6 4-6 4V8Z" />
+        </svg>
+        Take a tour
+      </button>
 
       <div className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-white/15 pt-4 text-xs text-brand-200">
         <span>50 agencies and sub-agents on record</span>

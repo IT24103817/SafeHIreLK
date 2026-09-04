@@ -1,5 +1,11 @@
 import { useEffect, useMemo, useState } from 'react'
-import { loadReports, updateStatus } from '../utils/storage.js'
+import { loadReports, updateStatus, reportKey } from '../utils/storage.js'
+import {
+  fetchSharedReports,
+  shareReport,
+  shareStatus,
+} from '../utils/reportsSync.js'
+import { DEMO_PASSCODE } from '../config.js'
 import PageHeading from '../components/PageHeading.jsx'
 import ReportForm from '../components/ReportForm.jsx'
 import ReportCard from '../components/ReportCard.jsx'
@@ -37,6 +43,11 @@ export default function ReportsPage({ role, isAdmin }) {
   const [destination, setDestination] = useState('')
   const [submitted, setSubmitted] = useState(null)
 
+  // Whatever the shared database returned, or null when it is unavailable.
+  // Everything on this page works the same either way.
+  const [shared, setShared] = useState(null)
+  const [isShared, setIsShared] = useState(false)
+
   const isAgent = role === 'agent'
 
   /*
@@ -50,15 +61,43 @@ export default function ReportsPage({ role, isAdmin }) {
     setSubmitted(null)
   }, [role])
 
+  /*
+    Ask the shared database for reports from other devices, once, on arrival.
+
+    The board has already rendered from localStorage by the time this runs, so
+    a slow or missing database delays nothing. If it answers, the extra reports
+    are merged in; if it does not, nobody notices.
+  */
+  useEffect(() => {
+    let stillMounted = true
+
+    fetchSharedReports().then((payload) => {
+      if (!stillMounted || payload === null) return
+      setShared(payload)
+      setIsShared(true)
+      setReports(loadReports(payload))
+    })
+
+    return () => {
+      stillMounted = false
+    }
+  }, [])
+
   function handleSubmitted(outcome) {
     setSubmitted(outcome)
-    setReports(loadReports())
+    setReports(loadReports(shared))
     setBoardTab('pending')
+
+    // Not awaited. The success panel is already on screen; this catches up in
+    // the background and is allowed to fail.
+    shareReport(outcome.report)
   }
 
-  function handleStatusChange(id, status) {
-    updateStatus(id, status)
-    setReports(loadReports())
+  function handleStatusChange(report, status) {
+    const key = reportKey(report)
+    updateStatus(key, status)
+    setReports(loadReports(shared))
+    shareStatus(key, status, DEMO_PASSCODE)
   }
 
   // Verified is the public board. Awaiting review holds pending reports, plus
@@ -113,7 +152,7 @@ export default function ReportsPage({ role, isAdmin }) {
       />
 
       {/* ---------- Report an incident ---------- */}
-      <section className="rounded-xl border border-brand-100 bg-white p-4 sm:p-5">
+      <section className="rounded-xl border border-brand-100 bg-white p-4 shadow-sm sm:p-5">
         <h3 className="text-base font-bold text-brand-900">
           {isAgent ? 'Report a candidate' : 'Report an agent or offer'}
         </h3>
@@ -172,10 +211,18 @@ export default function ReportsPage({ role, isAdmin }) {
       </section>
 
       {/* ---------- The boards ---------- */}
-      <section className="mt-8">
-        <h3 className="text-base font-bold text-brand-900">
-          Reports from the community
-        </h3>
+      <section className="mt-8" data-tour="boards">
+        <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+          <h3 className="text-base font-bold text-brand-900">
+            Reports from the community
+          </h3>
+          {isShared && (
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-safe-soft px-2.5 py-1 text-xs font-semibold text-safe">
+              <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-safe" />
+              Synced across devices
+            </span>
+          )}
+        </div>
 
         {isAdmin && (
           <p className="mt-3 rounded-lg border border-brand-200 bg-brand-50 px-3 py-2.5 text-sm font-medium text-brand-800">
@@ -245,7 +292,7 @@ export default function ReportsPage({ role, isAdmin }) {
 
               {visible.map((report) => (
                 <ReportCard
-                  key={report.id}
+                  key={reportKey(report)}
                   report={report}
                   isAdmin={isAdmin}
                   onStatusChange={handleStatusChange}

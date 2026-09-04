@@ -45,7 +45,7 @@ export default function ReportCard({ report, isAdmin, onStatusChange }) {
   }
 
   return (
-    <article className={'rounded-xl border p-4 sm:p-5 ' + style.card}>
+    <article className={'rounded-xl border p-4 shadow-sm sm:p-5 ' + style.card}>
       <div className="flex flex-wrap items-start justify-between gap-x-3 gap-y-2">
         <div className="min-w-0">
           <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
@@ -98,7 +98,7 @@ export default function ReportCard({ report, isAdmin, onStatusChange }) {
         <div className="mt-4 flex flex-wrap gap-2 border-t border-brand-100 pt-4">
           <button
             type="button"
-            onClick={() => onStatusChange(report.id, 'verified')}
+            onClick={() => onStatusChange(report, 'verified')}
             className="rounded-lg bg-safe px-4 py-2.5 text-sm font-bold text-white hover:bg-green-800"
           >
             Approve
@@ -107,7 +107,7 @@ export default function ReportCard({ report, isAdmin, onStatusChange }) {
           {report.status === 'pending' ? (
             <button
               type="button"
-              onClick={() => onStatusChange(report.id, 'rejected')}
+              onClick={() => onStatusChange(report, 'rejected')}
               className="rounded-lg border border-danger-line bg-white px-4 py-2.5 text-sm font-bold text-danger hover:bg-danger-soft"
             >
               Reject
@@ -115,7 +115,7 @@ export default function ReportCard({ report, isAdmin, onStatusChange }) {
           ) : (
             <button
               type="button"
-              onClick={() => onStatusChange(report.id, 'pending')}
+              onClick={() => onStatusChange(report, 'pending')}
               className="rounded-lg border border-brand-300 bg-white px-4 py-2.5 text-sm font-bold text-brand-800 hover:bg-brand-50"
             >
               Move back to review
@@ -128,7 +128,7 @@ export default function ReportCard({ report, isAdmin, onStatusChange }) {
         <div className="mt-4 border-t border-brand-100 pt-4">
           <button
             type="button"
-            onClick={() => onStatusChange(report.id, 'pending')}
+            onClick={() => onStatusChange(report, 'pending')}
             className="rounded-lg border border-brand-300 bg-white px-4 py-2.5 text-sm font-bold text-brand-800 hover:bg-brand-50"
           >
             Move back to review

@@ -98,6 +98,12 @@ Every report carries `pending | verified | rejected`. The Verified board is publ
 **Learn**
 Six-point safe-hiring checklist, a Today-versus-with-SafeHire impact section, and a roadmap.
 
+**Guided tour**
+A "Take a tour" button on the landing page walks a first-time visitor through all
+nine steps of the product — switching role and tab as it goes, and drawing a ring
+around the thing each step is describing. Escape leaves it, the arrow keys move
+through it.
+
 **AI analysis (optional)**
 An "Explain this advert" button appears *after* the rules result is already on screen. See section 6.
 
@@ -110,7 +116,8 @@ An "Explain this advert" button appears *after* the rules result is already on s
 | Framework | **React 19 + Vite 7** | Instant dev server and near-zero configuration; Vercel detects and builds a Vite project with no settings to get wrong under time pressure. |
 | Styling | **Tailwind CSS 4** | Responsive utilities without writing a stylesheet, and design tokens live in one `@theme` block so the safe/caution/danger colours mean the same thing everywhere. No separate config file to merge-conflict over. |
 | Reference data | **Static JSON in `src/data`** | A four-hour build has no time for a schema, migrations or a connection that can fail during a demo. The registry is read-only data, which is exactly what a JSON file is good at. |
-| Persistence | **`localStorage`** | Submitted reports and moderator decisions survive a page refresh during the demo without a backend or a login. |
+| Persistence | **`localStorage`** | Submitted reports and moderator decisions survive a page refresh during the demo without a backend or a login. It is the source of truth, so every core flow works with the network unplugged. |
+| Shared storage | **MongoDB Atlas (optional sync layer)** | `localStorage` is per-device, so a report filed on a phone never reaches a laptop. One collection of reports and one of moderator decisions let them travel between devices. It is a sync layer, not the source of truth — if it is unreachable the app behaves exactly as it does without it. |
 | Optional AI | **Claude API (`claude-opus-5`) via one Vercel function** | Adds a plain-language explanation on top of the rules result. Wrapped in a timeout and a try/catch, so the app behaves identically if the API is unreachable. |
 | Hosting | **Vercel** | Free, git-connected, deploys on every push, gives a public HTTPS URL, and runs the one serverless function that keeps the API key off the client. |
 | Version control | **GitHub** | Required deliverable; lets each member commit under their own account throughout the session. |
@@ -194,13 +201,33 @@ npm run preview
 
 No environment variable, API key or database is needed for any of this. Every feature except the optional "Explain this advert" button works offline.
 
-### Enabling the optional AI feature
+### Optional extras
 
-Copy `.env.example` to `.env` for reference, then set the real value in Vercel:
+Both are off by default and the app is complete without either. Set them in
+**Vercel → Settings → Environment Variables**, then redeploy — environment variables
+are not picked up by an existing deployment. `.env.example` documents all three.
 
-**Project → Settings → Environment Variables → `ANTHROPIC_API_KEY`**, then redeploy.
+| Variable | Enables | Notes |
+|---|---|---|
+| `ANTHROPIC_API_KEY` | The "Explain this advert" button | Server-side only, read in `api/explain.js` |
+| `MONGODB_URI` | Shared reports across devices | Server-side only, read in `api/reports.js` |
+| `VITE_SHARED_REPORTS` | Set to `on` to switch the shared layer on in the browser | A feature switch, not a secret. Leave it unset and the app never calls `/api/reports`, which keeps the console clean on a deployment with no database |
 
-Note that `npm run dev` does not serve `/api` — Vite does not run Vercel functions. Locally the button will fail and hide itself, which is the fallback behaving correctly. To exercise it locally, use `vercel dev`; otherwise test it on the deployed URL.
+**Never commit a real key.** `.env` is in `.gitignore`; `.env.example` holds empty
+placeholders only.
+
+Note that `npm run dev` does not serve `/api` — Vite does not run Vercel functions. Locally
+the AI button will fail and hide itself, which is the fallback behaving correctly. To
+exercise the functions locally use `vercel dev`; otherwise test them on the deployed URL.
+
+### How the optional layers fail
+
+Both follow the same rule, and it is the most important architectural decision in the
+project: **nothing on the critical path may depend on the network.** The rules engine
+always scores, the registry always searches, reports always save locally, and the boards
+always render. The AI section hides itself on any failure; the sync layer returns nothing
+and the app carries on with local data. Neither can produce an error dialog, a stuck
+spinner, or a broken layout.
 
 ### Deploying
 

@@ -287,6 +287,39 @@ Skip entirely if `ANTHROPIC_API_KEY` is not set in Vercel. The app is complete w
 
 ---
 
+## J2. Guided tour
+
+| ID | Steps | Expected | ✓ |
+|---|---|---|---|
+| J2.1 | Landing page → press "Take a tour" | Dark card at the bottom reading "Step 1 of 9" | |
+| J2.2 | Press Next through all nine steps | The app changes role and tab by itself; each step highlights something with a blue ring | |
+| J2.3 | Watch step 7 | Switches to the **agent** side and the Check Candidate tab on its own | |
+| J2.4 | Press Back | Returns to the previous step and the previous screen | |
+| J2.5 | Press the ← and → arrow keys | Move through the tour | |
+| J2.6 | Press Escape | Tour closes | |
+| J2.7 | After closing, look for leftover blue rings | None — the highlight is removed | |
+| J2.8 | Run the tour at 375px | The card fits, the progress dots stay on one line, nothing is covered | |
+| J2.9 | Press "Skip tour" at any step | Closes immediately | |
+
+---
+
+## J3. Shared reports (MongoDB)
+
+Only relevant when `MONGODB_URI` **and** `VITE_SHARED_REPORTS=on` are set in Vercel.
+Skip if they are not — the app is complete without them.
+
+| ID | Steps | Expected | ✓ |
+|---|---|---|---|
+| J3.1 | Open Reports with the shared layer **off** | Boards render normally, **no** "Synced across devices" badge, and **no** console error | |
+| J3.2 | With it on, open Reports | Green "Synced across devices" badge next to "Reports from the community" | |
+| J3.3 | Submit a report on device A, then open device B | The report appears on device B under Awaiting review | |
+| J3.4 | Approve it on device B, then reload device A | It shows as verified on device A too | |
+| J3.5 | DevTools → Network → Offline, reload, open Reports | Boards still render from localStorage. No spinner, no error | |
+| J3.6 | Submit a report while offline | Saves locally and shows the success panel. It syncs the next time the shared layer is reachable | |
+| J3.7 | Two devices each submit a report at the same time | Both appear. Neither overwrites the other — reports are keyed by a random client id, not by R-00n | |
+
+---
+
 ## K. Deployment
 
 | ID | Steps | Expected | ✓ |

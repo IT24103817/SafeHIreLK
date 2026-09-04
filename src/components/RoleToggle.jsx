@@ -12,6 +12,7 @@ export default function RoleToggle({ role, onRoleChange }) {
     <div
       role="group"
       aria-label="Choose who you are"
+      data-tour="role"
       className="grid grid-cols-2 gap-1 rounded-xl bg-white/10 p-1"
     >
       {ROLES.map((option) => {
