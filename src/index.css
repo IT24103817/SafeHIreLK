@@ -61,3 +61,17 @@ body {
   outline: 2px solid var(--color-brand-600);
   outline-offset: 2px;
 }
+
+/*
+  type="search" is what gives phones the right keyboard with a search key, but
+  Chrome and Safari also draw their own clear cross inside it. On the Verify and
+  Check Candidate boxes that sat right next to our own clear button, so the user
+  saw two crosses side by side. This hides the browser's one on those two
+  inputs only — the report filter box keeps its native cross, because it has no
+  button of ours.
+*/
+.has-custom-clear::-webkit-search-cancel-button,
+.has-custom-clear::-webkit-search-decoration {
+  -webkit-appearance: none;
+  appearance: none;
+}
